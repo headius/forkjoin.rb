@@ -1,5 +1,4 @@
-require 'java'
-org.jruby.ext.ForkJoin.new.load(JRuby.runtime, false)
+require 'forkjoin'
 
 pool = ForkJoin::Pool.new
 
