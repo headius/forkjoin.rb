@@ -106,6 +106,13 @@ public class ForkJoin implements Library {
             
             return context.nil;
         }
+
+        @JRubyMethod
+        public IRubyObject submit(ThreadContext context, final IRubyObject task, Block unused) {
+            final Ruby runtime = context.runtime;
+            pool.submit(((Task)task).task);
+	    return task;
+        }
         
         @JRubyMethod
         public IRubyObject invoke(ThreadContext context, IRubyObject task) {

@@ -11,8 +11,10 @@ public class Fibonacci extends RecursiveTask<Integer> {
 	System.out.println(String.format("%f [msec]", (System.nanoTime() - start) / 1000000.0));
     }
 
-    final int n;
+    private final int n;
+
     public Fibonacci(int n) { this.n = n; }
+
     public Integer compute() {
 	if (n <= 1) return n;
 	Fibonacci f1 = new Fibonacci(n - 1);
