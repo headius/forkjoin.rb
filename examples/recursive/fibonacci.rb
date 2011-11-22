@@ -12,9 +12,12 @@ class Fibonacci < ForkJoin::Task
   end
 end
 
+times = ARGV.shift.to_i
 n = ARGV.shift.to_i
 
-start = Time.now.to_f
-pool = ForkJoin::Pool.new
-puts "fib(%d) = %d" % [n, pool.invoke(Fibonacci.new(n))]
-puts "%f [msec]" % ((Time.now.to_f - start) * 1000)
+times.times do
+  start = Time.now.to_f
+  pool = ForkJoin::Pool.new
+  puts "fib(%d) = %d" % [n, pool.invoke(Fibonacci.new(n))]
+  puts "%f [msec]" % ((Time.now.to_f - start) * 1000)
+end

@@ -3,12 +3,15 @@ import java.util.concurrent.*;
 public class Fibonacci extends RecursiveTask<Integer> {
 
     public static void main(String[] args) {
-	int n = Integer.parseInt(args[0]);
-	ForkJoinPool pool = new ForkJoinPool();
-	ForkJoinTask<Integer> task = new Fibonacci(n);
-	long start = System.nanoTime();
-	System.out.println(String.format("fib(%d) = %d", n, pool.invoke(task)));
-	System.out.println(String.format("%f [msec]", (System.nanoTime() - start) / 1000000.0));
+	int times = Integer.parseInt(args[0]);
+	int n = Integer.parseInt(args[1]);
+	while (--times > 0) {
+	    ForkJoinPool pool = new ForkJoinPool();
+    	    ForkJoinTask<Integer> task = new Fibonacci(n);
+	    long start = System.nanoTime();
+	    System.out.println(String.format("fib(%d) = %d", n, pool.invoke(task)));
+	    System.out.println(String.format("%f [msec]", (System.nanoTime() - start) / 1000000.0));
+	}
     }
 
     private final int n;
