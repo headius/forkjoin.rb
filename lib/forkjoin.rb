@@ -1,5 +1,4 @@
-# TODO: temporary definition
-
-require 'java'
-require File.expand_path('../target/forkjoin.jar', File.dirname(__FILE__))
+require 'jruby'
+require 'jsr166y.jar'
+require 'forkjoin.jar'
 org.jruby.ext.ForkJoin.new.load(JRuby.runtime, false)

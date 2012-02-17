@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="build" name="forkjoin.rb">
   <property file="build.properties"/>
+  <property file="default.build.properties"/>
   <property name="src.java" value="src"/>
   <property name="target" value="target"/>
   <property name="target.classes" value="${target}/classes"/>
   <property name="jruby.jar" value="${jruby.home}/lib/jruby.jar"/>
-  <property name="version.source" value="1.7"/>
-  <property name="version.target" value="1.7"/>
 
   <path id="build.classpath">
     <pathelement location="${jruby.jar}"/>
+    <pathelement location="javalib/jsr166y.jar"/>
   </path>
 
   <target name="init">
@@ -22,14 +22,14 @@
   </target>
 
   <target depends="init" name="build" description="Compiles Java source files">
-    <javac debug="true" includeAntRuntime="false" destdir="${target.classes}" source="${version.source}" target="${version.target}">
+    <javac debug="true" includeAntRuntime="false" destdir="${target.classes}" source="1.5" target="1.5">
       <classpath refid="build.classpath"/>
       <src path="${src.java}"/>
     </javac>
   </target>
 
   <target depends="build" name="jar" description="Build a JAR file with the generated Java class files">
-    <jar destfile="${target}/forkjoin.jar" basedir="${target.classes}">
+    <jar destfile="lib/forkjoin.jar" basedir="${target.classes}">
       <manifest>
         <attribute name="Built-By" value="${user.name}"/>
       </manifest>
