@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{forkjoin}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
   s.authors = ["Charles Oliver Nutter", "Nakamura Hiroshi"]
   s.date = Time.now.strftime('%Y-%m-%d')
   s.description = "A JRuby extension to efficiently wrap the JSR166 Fork/Join framework."
