@@ -7,7 +7,7 @@ framework in an efficient way for JRuby.
 Example
 -------
 
-```
+```ruby
 require 'forkjoin'
 
 pool = ForkJoin::Pool.new
